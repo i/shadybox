@@ -14,7 +14,7 @@
       %ul.title-area
         %li.name
           %h1
-            %a{href: "/"} ShadyBox
+            = link_to "ShadyBox", root_url
 
       %section.top-bar-section
         / Right Nav Section
@@ -23,14 +23,23 @@
             %a{href: "about"} About
           - if current_user
             %li
-              = link_to "Logged in as #{current_user.email}"
+              = link_to "Logged in as #{current_user.username}"
             %li
               = link_to "Log out", log_out_path
           - else
+            %li.has-form
+              = form_tag sessions_path do
+                .row.collapse
+                  .large-4.small-4.columns
+                    = text_field_tag :username, params[:username], placeholder: "Username"
+                  .large-4.small-4.columns
+                    = password_field :password, params[:password], placeholder: "Password"
+                  .large-4.small-4.columns
+                    = submit_tag "LOG IN!", class: "button tiny radius"
             %li
               = link_to "Sign up", sign_up_path
-            %li
-              = link_to "Log in", log_in_path
+
+
 
     .row
       .large-12.columns
