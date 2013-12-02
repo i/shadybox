@@ -14,15 +14,28 @@
       %ul.title-area
         %li.name
           %h1
-            %a{href: "#"} ShadyBox
+            %a{href: "/"} ShadyBox
 
       %section.top-bar-section
         / Right Nav Section
         %ul.right
           %li
-            %a{href: "#"} About
-          %li
-            %a{href: "#"} Log In
+            %a{href: "about"} About
+          - if current_user
+            %li
+              = link_to "Logged in as #{current_user.email}"
+            %li
+              = link_to "Log out", log_out_path
+          - else
+            %li
+              = link_to "Sign up", sign_up_path
+            %li
+              = link_to "Log in", log_in_path
+
+    .row
+      .large.12.columns
+        - flash.each do |type, msg|
+          - haml_tag("div", msg, id: type )
     .row
       .large.12.columns
         = yield
