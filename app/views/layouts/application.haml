@@ -10,6 +10,19 @@
     = csrf_meta_tags
 
   %body
+    %nav.top-bar
+      %ul.title-area
+        %li.name
+          %h1
+            %a{href: "#"} ShadyBox
+
+      %section.top-bar-section
+        / Right Nav Section
+        %ul.right
+          %li
+            %a{href: "#"} About
+          %li
+            %a{href: "#"} Log In
     .row
       .large.12.columns
         = yield

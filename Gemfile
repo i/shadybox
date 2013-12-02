@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
 
-gem "haml-rails"
+gem 'bcrypt-ruby', require: 'bcrypt'
 
-# Authentication
-gem 'devise'
+gem 'haml-rails'
 
 # Styling with foundation
 gem 'foundation-rails'
