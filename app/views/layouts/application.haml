@@ -33,10 +33,10 @@
               = link_to "Log in", log_in_path
 
     .row
-      .large.12.columns
+      .large-12.columns
         - flash.each do |type, msg|
           - haml_tag("div", msg, id: type )
     .row
-      .large.12.columns
+      .large-12.columns
         = yield
     = javascript_include_tag "application"
